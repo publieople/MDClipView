@@ -17,6 +17,7 @@
     "highlight.js": "^11"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^2",
     "vite": "^6"
   }
 }
