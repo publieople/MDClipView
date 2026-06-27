@@ -82,3 +82,16 @@ document.addEventListener('visibilitychange', () => {
 
 // ── Init ──
 loadLocal();
+
+// ── Register Service Worker (PWA) ──
+if ('serviceWorker' in navigator && !window.__TAURI__) {
+  navigator.serviceWorker.register('/sw.js');
+}
+
+// ── Esc to hide (Tauri desktop) ──
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && window.__TAURI__) {
+    const { getCurrentWindow } = window.__TAURI__.window;
+    getCurrentWindow().hide();
+  }
+});
