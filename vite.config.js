@@ -4,6 +4,7 @@ import { resolve } from 'path';
 const root = resolve(__dirname, 'src');
 
 export default defineConfig({
+  base: '/MDClipView/',
   root: 'src',
   publicDir: '../public',
   build: {
