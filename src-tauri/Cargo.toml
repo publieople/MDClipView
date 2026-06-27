@@ -3,6 +3,10 @@ name = "mdclipview"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+name = "mdclipview"
+crate-type = ["lib", "cdylib"]
+
 [dependencies]
 tauri = { version = "2", features = ["tray-icon"] }
 tauri-plugin-clipboard-manager = "2"
