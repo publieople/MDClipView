@@ -28,6 +28,9 @@ jobs:
         with:
           targets: x86_64-pc-windows-msvc
 
+      - name: Install WiX Toolset
+        run: dotnet tool install --global wix --version 5.0.2
+
       - run: pnpm install --frozen-lockfile
 
       - name: Build Tauri (Windows)
@@ -69,13 +72,23 @@ jobs:
         with:
           packages: 'platforms;android-34 build-tools;34.0.0 ndk;27.0.12077973 cmake;3.22.1'
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Install Linux deps
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libwebkit2gtk-4.1-dev libxdo-dev libssl-dev
+
       - run: pnpm install --frozen-lockfile
 
       - name: Build Tauri (Android)
         run: |
           export ANDROID_HOME=$ANDROID_SDK_ROOT
           export NDK_HOME=$ANDROID_SDK_ROOT/ndk/27.0.12077973
-          export JAVA_HOME=$JAVA_HOME_17_X64
           pnpm tauri android build
         env:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
