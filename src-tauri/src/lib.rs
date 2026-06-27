@@ -1,6 +1,7 @@
+#[cfg(desktop)]
+mod tray;
 mod commands;
 mod config;
-mod tray;
 
 use tauri::Manager;
 
@@ -43,9 +44,9 @@ pub fn run() {
                 let shortcut =
                     Shortcut::new(Some(Modifiers::CONTROL | Modifiers::SHIFT), Code::KeyM);
                 app.global_shortcut().register(shortcut)?;
+                let _tray = tray::create_tray(app.handle())?;
             }
 
-            let _tray = tray::create_tray(app.handle())?;
             config::ensure_config_dir()?;
             Ok(())
         })
