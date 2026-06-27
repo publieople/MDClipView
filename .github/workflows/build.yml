@@ -89,6 +89,7 @@ jobs:
         run: |
           export ANDROID_HOME=$ANDROID_SDK_ROOT
           export NDK_HOME=$ANDROID_SDK_ROOT/ndk/27.0.12077973
+          pnpm tauri android init
           pnpm tauri android build
         env:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
