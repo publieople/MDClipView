@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MDClipView</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="toolbar">
+    <span class="title">⚡ MDClipView</span>
+    <button id="btnPaste" class="primary" title="从剪贴板粘贴">📋 粘贴</button>
+    <button id="btnClear">✕ 清空</button>
+    <button id="btnSettings">⚙️</button>
+  </div>
+
+  <div class="main">
+    <div class="editor-pane" id="editorPane">
+      <textarea id="editor" placeholder="在此粘贴 Markdown 内容…"></textarea>
+    </div>
+    <div class="preview-pane" id="previewPane">
+      <p class="placeholder">在左侧粘贴 Markdown<br>或点击 <strong>📋 粘贴</strong> 从剪贴板读取</p>
+    </div>
+  </div>
+
+  <div class="statusbar">
+    <span id="statusText">就绪</span>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

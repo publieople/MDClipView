@@ -1,0 +1,10 @@
+{
+  "identifier": "default",
+  "description": "Default permissions for MDClipView",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "clipboard-manager:default",
+    "global-shortcut:default"
+  ]
+}

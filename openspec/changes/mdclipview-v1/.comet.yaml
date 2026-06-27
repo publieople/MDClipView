@@ -1,0 +1,11 @@
+workflow: full
+phase: build
+design_doc: docs/superpowers/specs/2026-06-27-mdclipview-technical-design.md
+plan: ""
+build_mode: ""
+isolation: ""
+verify_mode: ""
+verify_result: pending
+verified_at: ""
+archived: false
+branch_status: pending
